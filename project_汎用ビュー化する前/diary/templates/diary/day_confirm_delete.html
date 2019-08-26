@@ -1,0 +1,25 @@
+{% extends 'diary/base.html' %}
+
+{% block content %}
+<form action="" method="POST">
+  <table class="table">
+    <tr>
+      <th>title</th>
+      <td>{{day.text}}</td>
+    </tr>
+    <tr>
+      <th>text</th>
+      <td>{{day.text}}</td>
+    </tr>
+    <tr>
+      <th>date</th>
+      <td>{{day.date}}</td>
+    </tr>
+  </table>
+
+  <p>こちらのデータを削除します</p>
+  <button type="submit">送信</button>
+  <!--クロスサイトリクエスト、POSTの時は必須。GETは別に良い-->
+  {% csrf_token %}
+  </form>
+  {% endblock %}

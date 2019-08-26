@@ -1,0 +1,25 @@
+{% extends 'diary/base.html' %}
+
+{% block content %}
+<h1>日記一覧</h1>
+<table class="table">
+  <thread>
+    <tr>
+      <th>タイトル</th>
+      <th>date</th>
+    </tr>
+  </thread>
+  <tbody>
+    {% for day in day_list %}
+    <tr>
+      <td><a href="{% url 'diary:detail' day.pk %}"</a>{{day.title}}</td>
+      <td>{{day.date}}</td>
+      <!--pkはprimary keyなので、絶対に生成されている-->
+      <td><a href="{% url 'diary:update' day.pk %}">更新</a></td>
+      <td><a href="{% url 'diary:delete' day.pk %}">削除</a></td>
+    </tr>
+{% endfor %}
+</tbody>
+</table>
+
+{% endblock %}

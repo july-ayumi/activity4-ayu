@@ -1,0 +1,11 @@
+{% extends 'diary/base.html' %}
+
+{% block content %}
+<form action="" method="POST">
+  <!--入力欄がpタグになるようにas_pとしている-->
+  {{form.as_p}}
+  <button type="submit">送信</button>
+  <!--クロスサイトリクエスト、POSTの時は必須。GETは別に良い-->
+  {% csrf_token %}
+  </form>
+  {% endblock %}
